@@ -1,0 +1,22 @@
+title: APT Multi-Stage Attack Detection
+id: apt-multi-stage-simulation
+status: experimental
+description: Detects simulated multi-stage APT activity in the SIEM environment
+author: HEMA SRI B
+logsource:
+    category: intrusion_detection
+
+detection:
+    selection:
+        event.category: intrusion_detection
+    exfiltration:
+        event.action: data_exfiltration
+    condition: selection or exfiltration
+
+level: medium
+
+tags:
+    - attack.initial_access
+    - attack.persistence
+    - attack.lateral_movement
+    - attack.exfiltration
